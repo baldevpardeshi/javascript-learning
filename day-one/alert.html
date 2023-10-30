@@ -7,9 +7,29 @@
         <h1>Alert and Variables</h1>
 
         <script>
-            alert("Hello world alert!");
-            confirm("Hello world confirm!");
-            prompt("Hello world promt!");
+            // ============ Variables =================
+            const firstName = 'Baldev';
+            let lastName = 'Pardeshi';
+            console.log(firstName, lastName);
+
+            // const can not be update
+            // firstName = 'Trueshant';
+            lastName = 'Bhangare';
+            console.log(firstName, lastName);
+
+            
+            // ============ Alerts =================
+            alert(firstName);
+
+            // confirrm
+            const confirmValueIS = confirm("your name is " + firstName);
+            document.write(confirmValueIS);
+            document.write("<br/>");
+            
+            // prompt
+            const myName = prompt("Enter your name");
+            document.write(myName);
+
         </script>
     </body>
 </html>
