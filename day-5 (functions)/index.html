@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" lang="en">
+    <head>
+        <title>document</title>
+    </head>
+    <body>
+        <h1>Javascript function</h1>
+        function : to use same thing multiple times use functions. (function call is always manditory)<br />
+        type of functions: <br />
+        - function no parameter and no return type <br />
+        - function with parameter and no return type <br />
+        - function with no parameter with return type <br />
+        - function with parameter with return type <br />
+        <script>
+            // function no parameter and no return type
+            function greeting() {
+                console.log("Hello");
+            };
+            greeting();
+            greeting();
+
+            // function with parameter and no return type
+            function wpnr(name) {
+                document.write("Hello" + " " + name);
+            };
+            wpnr("baldev");
+
+            // function with no parameter with return type
+            function wnpwrt() {
+                const a = 10;
+                const b = 20;
+
+                const c = a+b;
+
+                return c;
+            }
+            const result = wnpwrt();
+            console.log(result);
+
+            // function with parameter with return type
+            function wpwrt(a, b) {
+
+                const c = a+b;
+
+                return c;
+            }
+            const results = wpwrt(124, 345);
+            console.log(results);
+
+        </script>
+    </body>
+</html>
