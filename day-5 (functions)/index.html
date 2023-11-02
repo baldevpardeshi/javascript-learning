@@ -47,6 +47,18 @@
             const results = wpwrt(124, 345);
             console.log(results);
 
+
+            // callbcak function
+            function child() {
+                alert('I am a child');
+            }
+            function parent(childFunction) {
+                alert('I am a parent');
+                childFunction();
+            }
+
+            parent(child);
+
         </script>
     </body>
 </html>
