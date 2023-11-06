@@ -13,7 +13,8 @@
         - do while 
         - ternary oparater
         - for 
-
+        - for in (for object)
+        - for of (for array)
         <script>
             if (true) {
 
@@ -62,6 +63,20 @@
 
             for(let i = 5; i > 0; i--) {
                 alert(i);
+            }
+            const student = {
+                fname: 'baldev',
+                lname: 'pardeshi',
+                age: '26',
+                alert: '10/12/2000'
+            }
+            for (let i in student) {
+                alert(i);
+                console.log(student[i]);
+            }
+            const fruits = [apple, banana];
+            for (let i of fruits) {
+                document.getElementById("demo").innerHTML;
             }
         </script>
     </body>
