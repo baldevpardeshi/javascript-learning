@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>day one</title>
+    </head>
+    <body>
+        <h1>Output methods: </h1>
+        <ul>
+            <li>Console.log</li>
+            <li>alert only support string</li>
+            <li>document.write only support string, if you put anything will take it as a text</li>
+            <li>innerHTML</li>
+        </ul>
+        <div id="check"></div>
+        <script>
+            console.log("hello world");
+            console.error("hello world");
+            document.write("Hello world! document.write");
+            alert("Hello world alert!");
+            document.getElementById("check").innerHTML = "Hello world inner html";
+        </script>
+    </body>
+</html>
