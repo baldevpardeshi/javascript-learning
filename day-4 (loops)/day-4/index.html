@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+    <h1>MVIP-Function</h1>
+    <p> <strong>four types</strong></p>
+    <ul>
+        <li>function with no parameter and no rerurn type </li>
+        <li>functuon with parameter no return type</li>
+        <li>function with no parameter return type</li>
+        <li>function with parameter and return type</li>
+    </ul>
+    <p>
+        <strong>syntax:</strong> <br>
+        
+        function functionName() { <br>
+            console.log(Hello world!); <br>
+        } <br>
+
+        functionName(); // functuon call
+    </p>
+
+    <script>
+        // function with no parameter and no rerurn type
+         function functionName() {
+            console.log("Hello world!");
+        }
+        functionName(); // function call
+
+        //functuon with parameter no return type
+        function myFunction (a,b,c) {
+            console.log(a+b+c);
+        }
+        const a = 10;
+        const b = 20;
+        const c = 498;
+
+        myFunction(a,b,c); // function call with three parameters 
+
+        // function with no parameter return type
+        function npwrt() {
+            const ab = 234;
+            const cd = 687;
+            const abcd = ab+cd;
+
+            return abcd; // only one return in one function and its have only one return value
+        }
+        const sum = npwrt();
+        console.log(sum);
+
+        // function with parameter and return type
+        function addition(pq,rs) {
+            const pqrs = pq+rs;
+
+            return pqrs;
+        }
+        const pq = 10;
+        const rs = 20;
+        const sum1 = addition(pq,rs);
+
+        console.log(sum1);
+
+
+
+        // call back-function
+        function parent(child) {
+            child();
+            alert('I am parent');
+        }
+        function child() {
+            alert('I am child');
+        }
+        parent(child);
+    </script>
+</body>
+</html>
