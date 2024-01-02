@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+    <h1>Loops</h1>
+    <ul>
+        <li>if else / if else ladder</li>
+        <li>switch case</li>
+        <li>for</li>
+        <li>while</li>
+        <li>do while</li>
+    </ul>
+
+    <script>
+        const  mark = 35;
+
+        // ====== if else ladder ====== //
+        if(mark < 35) {
+            alert('mark is less than 35');
+        } else if (mark < 50) {
+            alert('mark is drater than 35 and less than 50');
+        } else if (mark < 90) {
+            alert('mark is grater than 50 and less than 90');
+        } else {
+            alert('mark in distingtion');
+        }
+
+
+
+        // ====== switch case ====== //
+        
+        function getDayMessage(day) {
+            switch(day) {
+                case 'monday' :
+                    alert('today is monday');
+                    break;
+                case "tuesday" :
+                    alert('today is tuesday');
+                    break;
+                default :
+                    alert("day not found");
+            }
+        }
+        let day = "monday";
+        getDayMessage(day);
+
+        // ======= while loop ============ //
+        let i = 1;
+        while (i < 10) {
+            console.log(i);
+            i++;
+        }
+        // ======= do while loop ============ //
+        let x = 1;
+        do {
+            console.log(x);
+            x++;
+        } while (x < 10);
+
+        // ======= for loop ============ //
+    </script>
+</body>
+</html>
