@@ -6,12 +6,13 @@
     <title>Document</title>
 </head>
 <body>
+    
     <input id="number-one" type="text">
     <input id="number-two" type="text">
-    <button onclick="multiplication()">*</button>
-    <button onclick="addition()">+</button>
-    <button onclick="substraction()">-</button>
-    <button onclick="division()">/</button>
+    <button onclick="opration('multiplication')">*</button>
+    <button onclick="opration('addition')">+</button>
+    <button onclick="opration('substraction')">-</button>
+    <button onclick="opration('division')">/</button>
     <div>Result: <span id="result"></span></div>
 
     
@@ -19,30 +20,48 @@
         let num1 = null;
         let num2 = null;
         
-        function multiplication() {
+        function opration(option) {
             num1 = document.getElementById("number-one").value;
             num2 = document.getElementById("number-two").value;
-            let sum = num1*num2;
-            document.getElementById("result").innerHTML = sum;
+
+            if(option==='multiplication'){
+                let sum = num1*num2;
+                document.getElementById("result").innerHTML = sum;
+            } else if (option==='addition') {
+                let sum = Number(num1)+Number(num2);
+                document.getElementById("result").innerHTML = sum;
+            } else if (option==='substraction') {
+                let sum = num1-num2;
+                document.getElementById("result").innerHTML = sum;
+            } else if (option==='division') {
+                let sum = num1/num2;
+                document.getElementById("result").innerHTML = sum;
+            }
         }
-        function addition() {
-            num1 = document.getElementById("number-one").value;
-            num2 = document.getElementById("number-two").value;
-            let sum = Number(num1)+Number(num2);
-            document.getElementById("result").innerHTML = sum;
-        }
-        function substraction() {
-            num1 = document.getElementById("number-one").value;
-            num2 = document.getElementById("number-two").value;
-            let sum = num1-num2;
-            document.getElementById("result").innerHTML = sum;
-        }
-        function division() {
-            num1 = document.getElementById("number-one").value;
-            num2 = document.getElementById("number-two").value;
-            let sum = num1/num2;
-            document.getElementById("result").innerHTML = sum;
-        }
+        // function multiplication() {
+        //     num1 = document.getElementById("number-one").value;
+        //     num2 = document.getElementById("number-two").value;
+        //     let sum = num1*num2;
+        //     document.getElementById("result").innerHTML = sum;
+        // }
+        // function addition() {
+        //     num1 = document.getElementById("number-one").value;
+        //     num2 = document.getElementById("number-two").value;
+        //     let sum = Number(num1)+Number(num2);
+        //     document.getElementById("result").innerHTML = sum;
+        // }
+        // function substraction() {
+        //     num1 = document.getElementById("number-one").value;
+        //     num2 = document.getElementById("number-two").value;
+        //     let sum = num1-num2;
+        //     document.getElementById("result").innerHTML = sum;
+        // }
+        // function division() {
+        //     num1 = document.getElementById("number-one").value;
+        //     num2 = document.getElementById("number-two").value;
+        //     let sum = num1/num2;
+        //     document.getElementById("result").innerHTML = sum;
+        // }
     </script>    
 </body>
 </html>
