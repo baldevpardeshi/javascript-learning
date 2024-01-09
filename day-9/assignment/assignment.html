@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #e6e6e6;
+    }
+    .calc {
+        background-color: #fff;
+        max-width: 500px;
+        padding: 0 16px 16px;
+        margin: 50px auto;
+        border: 1px solid #414141;
+        border-radius: 16px;
+    }
+    .input-wrapper,
+    .button-wrapper,
+    .result-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        padding-top: 16px;
+    }
+    .input-wrapper input,
+    #result {
+        padding: 6px;
+        border: 1px solid #414141;
+        border-radius: 16px;
+        flex: 1;
+        height: 24px;
+        display: flex;
+        align-items: center;
+    }
+    .button-wrapper button {
+        width: 36px;
+        height: 36px;
+        background-color: #e6e6e6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #414141;
+        color: #414131;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 8px;
+    }
+</style>
+<body>
+    <div id="root"></div>
+
+    <script>
+        const root = document.getElementById("root");
+        const inputWrapper = document.createElement("div");
+        const input1 = document.createElement("input");
+        const input2 = document.createElement("input");
+        const buttonWrapper = document.createElement("div");
+        const button1 = document.createElement("button");
+        const button2 = document.createElement("button");
+        const button3 = document.createElement("button");
+        const button4 = document.createElement("button");
+        const button5 = document.createElement("button");
+        const resultWrapper = document.createElement("div");
+        const resultSpan = document.createElement("span");
+
+
+        root.setAttribute("class","calc");
+        inputWrapper.setAttribute("class","input-wrapper");
+        input1.setAttribute("type","number");
+        input2.setAttribute("type","number");
+        input1.setAttribute("id","number-one");
+        input2.setAttribute("id","number-two");
+        buttonWrapper.setAttribute("class","button-wrapper");
+        resultWrapper.setAttribute("class","result-wrapper");
+        resultSpan.setAttribute("id","result");
+
+        button1.innerHTML = "+";
+        button2.innerHTML = "-";
+        button3.innerHTML = "x";
+        button4.innerHTML = "/";
+        button5.innerHTML = "%";
+        resultWrapper.innerHTML = "Result:";
+        
+        root.append(inputWrapper);
+        inputWrapper.append(input1);
+        inputWrapper.append(input2);
+        root.append(buttonWrapper);
+        buttonWrapper.append(button1);
+        buttonWrapper.append(button2);
+        buttonWrapper.append(button3);
+        buttonWrapper.append(button4);
+        buttonWrapper.append(button5);
+        root.append(resultWrapper);
+        resultWrapper.append(resultSpan);
+
+        function opration(option) {
+            num1 = document.getElementById("number-one").value;
+            num2 = document.getElementById("number-two").value;
+
+            if(option==='multiplication'){
+                let sum = num1*num2;
+                document.getElementById("result").innerHTML = sum;
+            } else if (option==='addition') {
+                let sum = Number(num1)+Number(num2);
+                document.getElementById("result").innerHTML = sum;
+            } else if (option==='substraction') {
+                let sum = num1-num2;
+                document.getElementById("result").innerHTML = sum;
+            } else if (option==='division') {
+                let sum = num1/num2;
+                document.getElementById("result").innerHTML = sum;
+            } else if (option==='mod') {
+                let sum = num1%num2;
+                document.getElementById("result").innerHTML = sum;
+            }
+        }
+        
+        
+        button1.addEventListener("click", 
+        function add() {
+            opration("addition")
+        });
+
+        button2.addEventListener("click", 
+        function minus() {
+            opration("substraction")
+        });
+
+        button3.addEventListener("click", 
+        function multiplication() {
+            opration("multiplication")
+        });
+
+        button4.addEventListener("click", 
+        function division() {
+            opration("division")
+        });
+
+        button5.addEventListener("click", 
+        function mod() {
+            opration("mod")
+        });
+    </script>
+</body>
+</html>

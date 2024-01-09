@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=h1, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Create html with JS</h1>
+    <ul>
+        <li>
+            createELement = use to create html element 
+            <p>const div1 = docuement.createElement("div")</p>
+        </li>
+        <li>
+            setAttribute = use to add attribute to create element 
+            <p>const div1 = docuement.setAttribute("class","container")</p>
+        </li>
+        <li>
+            Append = use to put one element into another element. 
+            <p>div1.append(span1)</p>
+        </li>
+        <li>
+            addEventListner = use to add event to specific element.
+            <p>div1.addEventListner("click", <br>
+                function add() { <br>
+                    opration();
+                })</p>
+        </li>
+        <li>
+            removeEventListner = use to remove event to specific element.
+            <p>div1.removeEventListner("click", <br>
+                function add() { <br>
+                    opration();
+                })</p>
+        </li>
+        <li>
+            add class by js= use to add class dynamically specific element without touch the html.
+            <p>
+                const button = docuement.getElementById("btn"); <br>
+                button.classList.add('newClass')
+            </p>
+        </li>
+        <li>
+            remove class by js = use to remove class dynamically specific element without touch the html.
+            <p>
+                const button = docuement.getElementById("btn"); <br>
+                button.classList.remove('newClass')
+            </p>
+        </li>
+        <li>
+            getElementByClassNames =  use to trigger elements by its class names. this always returns a array.
+        </li>
+    </ul>
+    <button class="red" id="root">one</button>
+    <button class="red"></button>
+    <button class="red"></button>
+    <script>
+        const one = document.getElementById("root");
+        one.addEventListener("click", 
+            function add() {
+                onecheck();
+            }
+        );
+        function onecheck() {
+            alert("one.checked");
+        }
+        
+        let buttonList = document.getElementsByClassName("red");
+        for(let i = 0; i < buttonList.length; i++) {
+            if(buttonList[i].id == "root") {
+                alert("test")
+            }
+        }
+
+    </script>
+</body>
+</html>

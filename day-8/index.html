@@ -5,15 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #e6e6e6;
+    }
+    .mt-1 {
+        margin-top: 16px;
+    }
+    .calc {
+        background-color: #fff;
+        max-width: 500px;
+        padding: 16px;
+        margin: 50px auto;
+        border: 1px solid #414141;
+        border-radius: 16px;
+    }
+    .input-wrapper,
+    .button-wrapper,
+    .result-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+    }
+    .input-wrapper input,
+    #result {
+        padding: 6px;
+        border: 1px solid #414141;
+        border-radius: 16px;
+        flex: 1;
+        height: 24px;
+        display: flex;
+        align-items: center;
+    }
+    .button-wrapper button {
+        width: 36px;
+        height: 36px;
+        background-color: #e6e6e6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #414141;
+        color: #414131;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 8px;
+    }
     
-    <input id="number-one" type="text">
-    <input id="number-two" type="text">
-    <button onclick="opration('multiplication')">*</button>
-    <button onclick="opration('addition')">+</button>
-    <button onclick="opration('substraction')">-</button>
-    <button onclick="opration('division')">/</button>
-    <div>Result: <span id="result"></span></div>
+</style>
+<body>
+    <div class="calc">
+        <div class="input-wrapper">
+            <input id="number-one" type="number">
+            <input id="number-two" type="number">
+        </div>
+        <div class="button-wrapper mt-1">     
+            <button onclick="opration('multiplication')">*</button>
+            <button onclick="opration('addition')">+</button>
+            <button onclick="opration('substraction')">-</button>
+            <button onclick="opration('division')">/</button>
+            <button onclick="opration('mod')">%</button>
+        </div>
+        <div class="result-wrapper mt-1">Result: <span id="result"></span></div>
+    </div>
 
     
     <script>
@@ -35,6 +91,9 @@
                 document.getElementById("result").innerHTML = sum;
             } else if (option==='division') {
                 let sum = num1/num2;
+                document.getElementById("result").innerHTML = sum;
+            } else if (option==='mod') {
+                let sum = num1%num2;
                 document.getElementById("result").innerHTML = sum;
             }
         }
