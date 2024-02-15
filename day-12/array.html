@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Methods</title>
+</head>
+<body>
+    <h1>Array Method</h1>
+    <li>
+        <strong>lenght:</strong> <br>
+        use to count number in the array;
+    </li>
+    <li>
+        <strong>toString()</strong> <br>
+        use to convert the array to a string;
+    </li>
+    <li>
+        <strong>at()</strong> <br>
+        use to select array index;
+    </li>
+    <li>
+        <strong>join()</strong>
+        use to join the array into single string with the given separator
+    </li>
+    <li>
+        <strong>push()</strong> <br>
+        use to push new value into created array at the last <br>
+    </li>
+    <li>
+        <strong>unShift()</strong> <br>
+        use to push new value into created array at the start <br>
+    </li>
+    <li>
+        <strong>pop()</strong> <br>
+        use to remove last value from created array <br>
+    </li>
+    <li>
+        <strong>shift()</strong>
+        use to remove first value from created array <br>
+    </li>
+    <li>
+        <strong>delete()</strong> <br>
+        use to remove the value but not change the value of the lenght <br>
+    </li>
+    <script>
+        const newArray = [1, 2, 3, 4, 5];
+        const newArrayLength =  newArray.length;
+        const toStringArray = newArray.toString();
+        const joinString = newArray.join("_");
+        const addSix = newArray.push(6);
+        const removeSix = newArray.pop();
+
+        delete newArray[3];
+    </script>
+</body>
+</html>

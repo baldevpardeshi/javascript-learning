@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Methods</title>
+</head>
+<body>
+    <h1>Array Method</h1>
+
+    <ul>
+        <li>
+            <strong>forEach()</strong> <br>
+            fruits = ['apple', 'orange', 'kiwi']; <br>
+            fruits.forEach(function (item, index) { <br>
+                console.log(item, index); <br>
+            }); <br>
+        </li>
+        <li>
+            <strong>map()</strong> <br>
+            fruits = ['apple', 'orange', 'kiwi']; <br>
+            fruits.map(function (item, index) { <br>
+                console.log(item, index); <br>
+                if (item === 'kiwi') { <br>
+                    return 'banana'; <br>
+                } else { <br>
+                    return item; <br>
+                } <br>
+            }); <br>
+        </li>
+        <li>
+            <strong>filter:</strong> <br>
+            its always return true values into the new array
+        </li>
+    </ul>
+    <h2>fat arrow function: </h2>
+    <p>function with self return type</p> 
+    <p>
+        <strong>Anonimous function convert to fat arrow:</strong> <br>
+        function () { <br>
+            retrun 'hello' <br>
+        } <br> <br>
+
+        () => { <br>
+            retrun 'hello' <br>
+        } <br> <br>
+        () => 'hello'
+    </p>
+    <p>
+        <strong>Normal function convert to fat arrow: </strong><br>
+        function myFunction() { <br>
+            return 'hello'; <br>
+        } <br> <br>
+        const myFunction = () => { <br>
+            return 'hello'; <br>
+        } <br> <br>
+        const myFunction = () => 'hello'; 
+    </p>
+    <script>
+        const fruits = ['apple', 'orange', 'kiwi', 'mango']; 
+        const data = fruits.map(function (item, index) {
+            console.log(item, index);
+            if (item === 'kiwi') {
+                return 'banana';
+            } else {
+                return item;
+            }
+        });
+        console.log(data);
+
+        const numbers = [10, 23, 3, 5, 8, 21, 9, 11, 18];
+        const result = numbers.filter(item =>
+            item > 10
+        )
+        console.log(result); 
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        let temp = "division";
+        let student = {
+            id: 1,
+            name: 'Student',
+            age: null
+        }
+        // You can add the value to the created object using the following using . oprator
+        student.marks = 30;
+        
+        // You can add the value to the created object using the following => student of class
+        student['class'] = 12;
+
+        // You can add the value to the created object using the following => student of temp in this used the 
+        // above temp variable as a key of the object value
+        student[temp] = "B";
+
+
+        console.log(student);
+
+
+        let students = {
+            id: 1,
+            name: 'Student',
+            marks: {
+                maths: 80, 
+                english: 60,
+                total: function ()  {
+                    return this.maths + this.english;
+                }
+            }
+        }
+        students.marks.english = 80;
+        students["marks"]["maths"] = 100;
+
+        console.log(students);
+        console.log(students.marks.total(), 'TOTAL FUNCTION');
+
+        //for in loop is only for the object
+        for(let i in students) {
+            console.log(i, "key");
+            console.log(students[i], "value");
+
+            // in case of if you have object in object
+            for(let j in students.marks) {
+                console.log(j, "key");
+                console.log(students.marks[j], "value");
+            }
+        }
+        // Also you can add another for in loop for the students.marks
+
+
+        // for of loop is for the array only.
+        const newArray = ['baldev', 'test', 'student', 'students', 'marks'];
+
+        for (let i of newArray) {
+            console.log(i, "'this is for of loop'")
+        }
+
+
+        //for loop other type to write
+        let i = 0;
+        for(; i < newArray.length;)  {
+
+            console.log(i);
+
+            i++
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+
+    <style>
+        /* body {
+            background-color: rgb(17 24 39 / 1);
+        }
+        #root {
+            
+        } */
+    </style>
+</head>
+<body>
+    <div id="root">
+        <h1>Task List:</h1>
+        <div class="add-task-wrapper">
+            <input type="text" id="task-name">
+            <button id="add-task" class="" onclick="addToDoList()">Add +</button>
+            <button id="update-task" onclick="updateTodo()">Update</button>
+        </div>
+        <p id="error-message"></p>
+        <ol id="task-list">
+
+        </ol>
+    </div>
+    <script>
+        const myToDoList = [];
+        let editableIndex = null;
+        const taskInput = document.getElementById("task-name");
+        const addButton = document.getElementById("add-task");
+        const updateTaskButton = document.getElementById("update-task"); 
+        const taskList = document.getElementById("task-list");
+        
+        // create HTML for the edit task
+        const editWrapper = document.createElement("div");
+        const editInput = document.createElement("input");
+        const cancelButton = document.createElement("button");
+        const saveButton = document.createElement("button");
+
+        updateTaskButton.style.display = "none";
+
+        const myToDoListFunction = () => {
+            
+            
+            taskList.innerHTML = "";
+            for (let i = 0; i < myToDoList.length; i++) {
+                const taskName = myToDoList[i];
+                const listItem = document.createElement("li");
+                const listItemWrapper = document.createElement("div");
+                const listItemName = document.createElement("p");
+                const removeTaskBtn = document.createElement("button");
+                const editTaskBtn = document.createElement("button");
+        
+                taskList.append(listItem);
+                listItem.append(listItemWrapper);
+                listItemWrapper.append(listItemName);
+                listItemName.append(taskName)
+                listItemWrapper.append(removeTaskBtn);
+                listItemWrapper.append(editTaskBtn);
+
+                removeTaskBtn.innerHTML = "remove";
+                editTaskBtn.innerHTML = "edit";
+
+                // Remove Task 
+                removeTaskBtn.addEventListener("click", () => {
+                    myToDoList.splice(i, 1);
+                    taskList.innerHTML = "";
+                    taskInput.value = "";
+                    myToDoListFunction();
+                });
+
+                // Edit Task
+                editTaskBtn.addEventListener("click", () => {
+                    editableIndex = i;
+                    listItemWrapper.style.display = "none";
+                    editWrapper.style.display = "block";
+                    listItem.append(editWrapper);
+                    editWrapper.append(editInput);
+                    editWrapper.append(cancelButton);
+                    editWrapper.append(saveButton);
+
+                    cancelButton.innerHTML = "cancel";
+                    saveButton.innerHTML = "save";
+
+                    editInput.value = myToDoList[i];
+                });
+
+                // svae edited list
+                saveButton.addEventListener("click", () => {
+                    myToDoList[editableIndex] = editInput.value;
+                    myToDoListFunction();
+                    // editInput.value = "";
+                }); 
+                
+                // cancel edit list
+                cancelButton.addEventListener("click", () => {
+                    listItemWrapper.style.display = "block";
+                    editWrapper.style.display = "none";
+                });
+            }
+        }
+
+        // this is first thing in myToDoList
+        const addToDoList = () => {
+            const inputValue = document.getElementById("task-name");
+            const errorMessage = document.getElementById("error-message");
+            errorMessage.innerHTML = "";
+            if (inputValue !== "") {
+                myToDoList.push(inputValue.value);
+                myToDoListFunction();
+                inputValue.value = "";
+            } else {
+                errorMessage.innerHTML = "Please the value";
+            }
+        }
+    </script>
+</body>
+</html>

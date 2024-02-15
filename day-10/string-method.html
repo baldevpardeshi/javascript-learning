@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Method</title>
+    <style>
+        li {
+            margin-bottom: 15px;
+        }
+        strong {
+            color: red;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>String Method</h1>
+
+    <ol>
+        <li>
+            <strong>Length:</strong> <br>
+            use to count length of string <br>
+            const a = "string" <br>
+            a.length
+        </li>
+        <li>
+            <strong>charAt:</strong> <br>
+            Use to take a any character or digit in the String <br>
+            const a = "string" <br>
+            a.charAt[0]
+        </li>
+        <li>
+            <strong>slice:</strong> <br>
+            use to slice a text from the string<br>
+            const names = "apple,banana,kiwi" <br>
+            names.slice(6, 12)
+        </li>
+        <li>
+            <strong>subString:</strong> <br>
+            Use to create another separate string from the string <br>
+            const names = "apple,banana,kiwi" <br>
+            names.slice(6, 6) <br>
+            We can also use in (-4) t0 start it from the end of the string
+        </li>
+        <li>
+            <strong>toUppercase:</strong> <br>
+            use to transform string to capital <br>
+            const a = "string" <br>
+            toUppercase(a)
+        </li>
+        <li>
+            <strong>toLowercase:</strong> <br>
+            use to transform string to small case <br>
+            const a = "string" <br>
+            toLowercase(a)
+        </li>
+        <li>
+            <strong>Concat</strong> <br>
+            Use to concat(join) two and more strings. <br>
+            
+            const a = "string" <br>
+            const b = "string" <br>
+            a.concat(" ", b)
+        </li>
+        <li>
+            <strong>trim()</strong> <br>
+            use to remove leading and trailing whitespace. <br>
+            const a = "    string   " <br>
+            a.trim() <br>
+            also have two more options: trimStart and trimEnd, to remove leading and trailing whitespace.
+        </li>
+        <li>
+            <strong>padStart</strong> <br>
+            Use to add some extra same text into the output text. <br>
+            const a = "5987" <br>
+            a.padStart(13, "x") <br>
+            output: xxxx xxxx xxxx 5987
+        </li>
+        <li>
+            <strong>Replace:</strong> <br>
+            use to replace the text in the output text. <br>
+            const a = "hello world" <br>
+            a.replace("l", "*"); <br>
+            output: he*lo;
+        </li>
+        <li>
+            <strong>Replace All:</strong> <br>
+            use to replace the text in the output text. <br>
+            const a = "hello world" <br>
+            a.replaceAll("o", "*"); <br>
+            output: hell* w*rld;
+        </li>
+        <li>
+            <strong>Split:</strong>
+            use to separate the string usint the " "; <br>
+            const names = "apple,banana,kiwi" <br>
+            names.split("a") <br>
+            output: ["","pple,b", "n", "n", ",kiwi"];
+        </li>
+    </ol>
+    <!-- <script>
+        const names = "apple,banana,kiwi" 
+        const split = names.split("a");
+          console.log(split);  
+    </script> -->
+</body>
+</html>

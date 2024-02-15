@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment</title>
+</head>
+<body>
+    <script>
+        const myFunction = (param) => {
+            let newString = "";
+            let count = 0;
+            for(let i = 0; i < param.length; i++) {
+                if(param[i] === "o") {
+                    for(let j = 0; j <= count; j++) {
+                        newString += "$"
+                    }
+                    count += 1;
+                } else {
+                    newString += param[i];
+                }
+            }
+            return newString;
+        }
+        const result = myFunction("tomorrow");
+        console.log(result);
+
+        const myFunctionOne = (paramOne) => {
+            let newArray = [];
+            for (let i = 0; i < paramOne.length; i++) {
+                let duplicate = false;
+                for (let j = 0; j < newArray.length; j++) {
+                    if(paramOne[i] === newArray[j]) {
+                        duplicate = true;
+                    } 
+                }
+                if(!duplicate) {
+                    newArray.push(paramOne[i])
+                }
+            }
+            
+            return newArray;
+        }
+        const resultOne = myFunctionOne([1,2,3,2,5,3]);
+        console.log(resultOne);
+
+        const myFunctionTwo = (paramTwo) => {
+            let newArray = [];
+            let duplicateValues = [];
+            for (let i = 0; i < paramTwo.length; i++) {
+                let duplicate = false;
+                for (let j = 0; j < newArray.length; j++) {
+                    if(paramTwo[i] === newArray[j]) {
+                        duplicate = true;
+                        duplicateValues.push(paramTwo[i]);
+                    } 
+                }
+                if(!duplicate) {
+                    newArray.push(paramTwo[i])
+                }
+            }
+            const result = [...newArray, ...duplicateValues];
+            return result;
+        }
+        const resultTwo = myFunctionTwo([10,5,0,2,0,3,0]);
+        console.log(resultTwo);
+    </script>
+</body>
+</html>

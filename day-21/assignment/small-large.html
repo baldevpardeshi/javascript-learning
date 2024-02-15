@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>find smallest and largest number </title>
+</head>
+<body>
+    <h1>find smallest and largest number </h1>
+
+    <script>
+        let marks = [60,20,80,40];
+        let maxValue = marks[0];
+        let smallValue = marks[0];
+
+        for (let i = 0; i < marks.length; i++) {
+            if(maxValue < marks[i]) {
+                maxValue = marks[i];
+            }
+        }
+        console.log(maxValue);
+
+        for(let j = 0; j < marks.length; j++) {
+            if(smallValue > marks[j]) {
+                smallValue = marks[j];
+            }
+        }
+        console.log(smallValue);
+    </script>
+</body>
+</html>

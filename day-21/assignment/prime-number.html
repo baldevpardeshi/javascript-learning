@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const myFunction = (from, to) => {
+            for(let i = from; i <= to; i++) {
+                let isPrime = true; 
+                for(let j = 2; j <i; j++) {  
+                    if (i % j === 0) {
+                        isPrime = false;
+                        break; 
+                    }
+                }
+                if (isPrime === true) {
+                    console.log(i);
+                }
+            }
+        }
+    
+        myFunction(0, 100); 
+
+
+       const arr = [10, 20, 5, 11, 12, 13];
+        for (let i = 0; i <= arr.length; i++) {
+            let isPrime = true;
+            for (let j = 2; j < arr[i]; j++) {
+                if(arr[i]%j === 0) {
+                    isPrime = false;
+                }
+            }
+            if(isPrime === true) {
+                console.log(arr[i], "second prime");
+            }
+        }
+    </script>
+</body>
+</html>

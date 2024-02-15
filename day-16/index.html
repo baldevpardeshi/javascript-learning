@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>assignment</title>
+</head>
+<body>
+    <h1>Task List:</h1>
+    <div class="add-task-wrapper">
+        <input type="text" id="task-name">
+        <button id="add-task" class="">Add +</button>
+    </div>
+    <ol id="task-list">
+
+    </ol>
+
+    <script>
+        const taskInput = document.getElementById("task-name");
+        const addButton = document.getElementById("add-task");
+        const taskList = document.getElementById("task-list");
+
+        function addTask() {
+            const taskName = taskInput.value;
+            const listItem = document.createElement("li");
+            const listItemName = document.createElement("p");
+            const removeTaskBtn = document.createElement("button");
+    
+            taskList.append(listItem);
+            listItem.append(listItemName);
+            listItemName.append(taskName)
+            listItem.append(removeTaskBtn);
+
+            removeTaskBtn.innerHTML = "remove";
+
+            // Clear input value
+            taskInput.value = "";
+        }
+        addButton.addEventListener("click", 
+        function () {
+            addTask();
+        });
+    </script>
+</body>
+</html>
