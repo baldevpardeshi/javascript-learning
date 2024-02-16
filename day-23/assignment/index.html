@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment</title>
+</head>
+<body>
+    
+    <script>
+        const myFunction = (list) => {
+            let temp;
+            for(let i = 0; i < list.length; i++) {
+                for(let j = i + 1; j < list.length; j++) {
+                    if(list[i] > list[j]) {
+                        temp = list[i];
+                        list[i] = list[j];
+                        list[j] = temp;
+                    }
+                }
+            }
+            return list;
+        }
+        const result = myFunction([10, 20, 5, 30, 4, 80]);
+        console.log(result);
+
+        
+        const myFunctionOne = (par) => {
+            let resultTrue = `${par} is palindrome`;
+            let resultFalse = `${par} is not a palindrome`;
+            let i = par.length -1;
+            for(let j = 0; j < par.length / 2; j++) {
+                if(par[j] === par[i]) {
+                    i--
+                } else {
+                    return resultFalse;
+                }
+            }
+            return resultTrue;
+        }
+        const resultOne = myFunctionOne("NAYAN");
+        console.log(resultOne);
+
+
+        const arr = [10,20,5,6,30,4];
+        let newArr =[];
+
+        for (let i = arr.length-1; i >= 0; i--) {
+            newArr.push(arr[i]);
+        }
+        console.log(newArr);
+    </script>
+</body>
+</html>
