@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+        .clock {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-direction: column;
+        }
+        #count {
+            height: 200px;
+            width: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: red;
+            border: 1px solid black;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <p id="count"></p>
+        <button id="startBtn" onclick="startTimer()">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+            </svg>          
+        </button>
+        <button id="stopBtn" onclick="stopTimer()">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25v13.5m-7.5-13.5v13.5" />
+            </svg> 
+        </button>
+    </div>
+
+    <script>
+        const count = document.getElementById("count");
+        let startBtn = document.getElementById("startBtn");
+        let stopBtn = document.getElementById("stopBtn");
+        let seconds = 0;
+        let timer;
+        
+        stopBtn.style.display = 'none';
+
+        const startTimer = () => {
+            timer = setInterval(() => {
+                seconds++;
+                count.innerHTML = seconds;
+            }, 1000);
+            startBtn.style.display = 'none';
+            stopBtn.style.display = 'block';
+        }
+
+        const stopTimer = () => {
+            clearInterval(timer);
+            startBtn.style.display = 'block';
+            stopBtn.style.display = 'none';
+        }
+
+    </script>
+</body>
+</html>

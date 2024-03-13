@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 24px;
+            height: 100vh;
+        }
+        .clickme {
+            padding: 16px 80px;
+            font-size: 16px;
+            background: #ea5c27;
+            border: 0px;
+            border-radius: 40px;
+            color: #fff;
+        }
+        .animation {
+            animation: jump-shaking 0.6s linear;
+        }
+        .d-none {
+            display: none;
+        }
+        @keyframes jump-shaking {
+            0% { transform: translateX(0) }
+            25% { transform: translateY(-9px) }
+            35% { transform: translateY(-9px) rotate(17deg) }
+            55% { transform: translateY(-9px) rotate(-17deg) }
+            65% { transform: translateY(-9px) rotate(17deg) }
+            75% { transform: translateY(-9px) rotate(-17deg) }
+            100% { transform: translateY(0) rotate(0) }
+        }
+            
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="btn" class="clickme">Click Me</button>
+        <p id="content" class="d-none">Content is loaded</p>
+    </div>
+
+    <script>
+        const btn = document.getElementById("btn");
+        const content = document.getElementById("content");
+        setInterval(() => {
+            btn.classList.add("animation");
+            
+            setTimeout (() => {
+            btn.classList.remove("animation");
+            }, 1000)
+        }, 5000);
+
+        setTimeout (() => {
+            content.classList.remove("d-none");
+        }, 5000)
+    </script>
+</body>
+</html>
