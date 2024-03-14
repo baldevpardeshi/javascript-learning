@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f8f8f8; 
+        }
+        .portfolio {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .portfolio-item {
+            margin: 20px;
+            padding: 20px;
+            width: 500px;
+            background-color: #fff; /* White background */
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-image-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .profile-image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2));
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .profile-image-container:hover .profile-image-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-info {
+            padding: 20px;
+        }
+
+        .name {
+            margin: 0;
+            font-size: 28px;
+            color: #333; 
+        }
+
+        .education {
+            margin-top: 5px;
+            color: #666; 
+            font-size: 18px;
+        }
+
+        .description {
+            margin-top: 10px;
+            color: #444;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .contact {
+            margin-top: 15px;
+            color: #555;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        @media screen and (max-width: 768px) {
+            .portfolio-item {
+                width: calc(50% - 40px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="portfolio">
+        <div class="portfolio-item">
+            <div id="profileImage" class="profile-image-container">
+               
+            </div>
+            <div id="profileInfo" class="portfolio-info">
+                <p id="contact" class="contact"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // All javascript prompts here added
+        const myName = prompt("Enter your full name");
+        const myEducation = prompt("Enter your education");
+        const mySelfDescription = prompt("Enter your description");
+        const myEmail = prompt("Enter your email address");
+        const myPhone = prompt("Enter your mobile phone number");
+        const myPhoto = prompt("Enter your photo URL", "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+        
+        // All getElementById
+        let profileImage = document.getElementById("profileImage");
+        let profileInfo = document.getElementById("profileInfo");
+        
+
+        // All createELements -> Image and image-overlay
+        let img = document.createElement("img");
+        let imgOverlay = document.createElement("div");
+        img.src = myPhoto;
+        //-> name,education,description
+        let name = document.createElement("h1");
+        let education = document.createElement("p");
+        let description = document.createElement("p");
+        //-> emaillabel,email,br,mobileLabel,mobile
+        let contact = document.createElement("p");
+        let emailLabel = document.createElement("strong");
+        let email = document.createElement("span");
+        let br = document.createElement("br");
+        let mobileLabel = document.createElement("strong");
+        let mobile = document.createElement("span");
+
+        // All SetAttributes added
+        img.setAttribute("class","profile-image");
+        img.setAttribute("alt","profile-image");
+        imgOverlay.setAttribute("class","profile-image-overlay");
+
+        name.setAttribute("class","name");
+        education.setAttribute("class","education");
+        description.setAttribute("class","description");
+        
+        contact.setAttribute("id","contact");
+        contact.setAttribute("class","contact");
+        email.setAttribute("id","email");
+        mobile.setAttribute("id","mobile");
+
+        // All apends -> images in profile image
+        profileImage.append(img);
+        profileImage.append(imgOverlay);
+        // -> name, education, description added to profile information
+        profileInfo.append(name);
+        profileInfo.append(education);
+        profileInfo.append(description);
+        profileInfo.append(contact);
+        // -> emailLabel, email, mobileLabel, mobile added to Contact Information
+        contact.append(emailLabel);
+        contact.append(email);
+        contact.append(br);
+        contact.append(mobileLabel);
+        contact.append(mobile);
+        
+        //All innerHTML here
+        name.innerHTML = myName;
+        education.innerHTML = myEducation;
+        description.innerHTML = mySelfDescription;
+        emailLabel.innerHTML = "Email: ";
+        mobileLabel.innerHTML = "Mobile: ";
+        email.innerHTML = myEmail;
+        mobile.innerHTML = myPhone;
+    </script>
+</body>
+</html>
