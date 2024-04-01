@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Post</title>
+</head>
+<body>
+    <form onsubmit="handleSubmit()">
+        <input type="text" id="name" name="name">
+        <input type="number" id="age" name="age">
+        <input type="submit" value="submit">
+    </form>
+    <script>
+        const handleSubmit = (e) => {
+            
+          const name = event.target.name.value;
+          const age = event.target.age.value;
+          console.log(name, age);
+          const data = {
+                    "name": name,
+                    "age": age
+          }
+          console.log(data, "data one");
+        myFunction(data);
+        console.log(data, "data two");
+        }
+        const myFunction = (data) => {
+            fetch('http://localhost:3000/student', {
+                method: 'POST',
+                body: JSON.stringify(data)
+            }).then((response) => {
+                return response.json();
+            }).then((finalResponse) => {
+                console.log(finalResponse);
+            }).catch((error) => {
+                console.log(error, 'Error occurred');
+            });
+        }
+    </script>
+</body>
+</html>

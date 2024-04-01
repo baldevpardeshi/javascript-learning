@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student form</title>
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding-block: 40px;
+    }
+
+    .form-container {
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 600px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        font-weight: bold;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="number"],
+    .form-group select {
+        width: calc(100% - 2px);
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        margin-top: 5px;
+    }
+
+    .form-group input[type="checkbox"],
+    .form-group input[type="radio"] {
+        margin-right: 5px;
+    }
+
+    .form-group input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .form-group input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    .form-group.flex {
+        display: flex;
+        align-items: center;
+    }
+
+    .form-group.flex label {
+        margin-right: 10px;
+        width: 100px;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table th,
+    table td {
+        border: 1px solid #ccc;
+        padding: 12px;
+        text-align: left;
+    }
+
+    table th {
+        background-color: #f2f2f2;
+    }
+
+    table tbody tr:hover {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2 style="text-align: center;">Student Form</h2>
+        <form id="studentForm" onsubmit="addStudent(event)">
+            <div class="form-group flex">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+            <div class="form-group flex">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group flex">
+                <label for="gender">Gender:</label>
+                <input type="radio" id="male" name="gender" value="male" required>
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label>
+            </div>
+            <div class="form-group flex">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+            </div>
+            <div class="form-group flex">
+                <label for="country">Country:</label>
+                <select id="country" name="country" required>
+                    <option value="">Select Country</option>
+                    <option value="USA">USA</option>
+                    <option value="UK">UK</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Australia">Australia</option>
+                </select>
+            </div>
+            <div class="form-group flex">
+                <label for="subjects">Subjects:</label>
+                <input type="checkbox" id="maths" name="subjects" value="Maths">
+                <label for="maths">Maths</label>
+                <input type="checkbox" id="science" name="subjects" value="Science">
+                <label for="science">Science</label>
+                <input type="checkbox" id="history" name="subjects" value="History">
+                <label for="history">History</label>
+            </div>
+            <div class="form-group flex">
+                <label for="interests">Interests:</label>
+                <input type="checkbox" id="sports" name="interests" value="Sports">
+                <label for="sports">Sports</label>
+                <input type="checkbox" id="music" name="interests" value="Music">
+                <label for="music">Music</label>
+                <input type="checkbox" id="reading" name="interests" value="Reading">
+                <label for="reading">Reading</label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+    <div class="container">
+        <h2>Student Data</h2>
+        <table id="studentTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Age</th>
+                    <th>Country</th>
+                    <th>Subjects</th>
+                    <th>Interests</th>
+                </tr>
+            </thead>
+            <tbody id="studentTableBody">
+            </tbody>
+        </table>
+    </div>
+    <script>
+        let dataSource = [];
+        const getData = (query) => {
+            fetch(`http://localhost:8000/${query}`).then((response) =>{
+                return response.json();
+            }).then((finalResponse) =>{
+                displayData(finalResponse)
+                dataSource = finalResponse;
+            }).catch((error) => {
+                console.log(error, "error");
+            })
+        }
+        const postData = (query, data) => {
+            fetch(`http://localhost:8000/${query}`, {
+                method:'POST',
+                body: JSON.stringify(data)
+            }).then((response) =>{
+                return response.json();
+            }).then((finalResponse) =>{
+                console.log(finalResponse);
+                displayData([...dataSource, finalResponse])
+
+            }).catch((error) => {
+                console.log(error, "error");
+            })
+        }
+
+        const addStudent = (event) => {
+            event.preventDefault();
+            const firstname = event.target.fullName.value;
+            const email = event.target.email.value;
+            const gender = event.target.gender.value;
+            const age = event.target.age.value;
+            const country = event.target.country.value;
+            const subjects = event.target.subjects.value;
+            const interests = event.target.interests.value;
+
+            const formdata = {
+                firstname,
+                email,
+                gender,
+                age,
+                country,
+                subjects,
+                interests
+            }
+            postData('students',formdata);
+        }
+        
+        function displayData(data) {
+            const tableBody = document.getElementById('studentTableBody');
+            tableBody.innerHTML = '';
+
+            for (let i = 0; i < data.length; i++) {
+                const student = data[i];
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${student.id}</td>
+                    <td>${student.firstname}</td>
+                    <td>${student.email}</td>
+                    <td>${student.gender}</td>
+                    <td>${student.age}</td>
+                    <td>${student.country}</td>
+                    <td>${student.subjects}</td>
+                    <td>${student.interests}</td>
+                `;
+                tableBody.appendChild(row);
+            }
+        }
+        getData('students');
+    </script>
+</body>
+</html>

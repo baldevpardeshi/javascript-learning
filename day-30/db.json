@@ -1,0 +1,150 @@
+{
+  "students": [
+    {
+      "id": "1",
+      "fullName": "John Doe",
+      "email": "john.doe@example.com",
+      "gender": "male",
+      "age": 25,
+      "country": "USA",
+      "subjects": [
+        "Maths",
+        "Science"
+      ],
+      "interests": [
+        "Sports",
+        "Music"
+      ]
+    },
+    {
+      "id": "2",
+      "fullName": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "gender": "female",
+      "age": 23,
+      "country": "UK",
+      "subjects": [
+        "Science",
+        "History"
+      ],
+      "interests": [
+        "Reading"
+      ]
+    },
+    {
+      "id": "f316",
+      "firstname": "baldev pardeshi",
+      "email": "baldev@setoo.co",
+      "gender": "male",
+      "age": "20",
+      "country": "USA",
+      "subjects": "",
+      "interests": ""
+    },
+    {
+      "id": "d3ed",
+      "firstname": "baldev pardeshi",
+      "email": "baldev@setoo.co",
+      "gender": "male",
+      "age": "20",
+      "country": "USA",
+      "subjects": "",
+      "interests": ""
+    },
+    {
+      "id": "ddbd"
+    },
+    {
+      "id": "e0b0",
+      "firstname": "baldev pardeshi",
+      "email": "baldev@setoo.co",
+      "gender": "male",
+      "age": "20",
+      "country": "USA",
+      "subjects": "",
+      "interests": ""
+    },
+    {
+      "id": "5f2a"
+    },
+    {
+      "id": "be93"
+    },
+    {
+      "id": "fa99"
+    },
+    {
+      "id": "1849"
+    },
+    {
+      "id": "8476",
+      "firstname": "new updated",
+      "email": "trushant@geexu.in",
+      "gender": "male",
+      "age": "20",
+      "country": "USA",
+      "subjects": "",
+      "interests": ""
+    },
+    {
+      "id": "aa23",
+      "firstname": "baldev pardeshi",
+      "email": "baldev@setoo.co",
+      "gender": "male",
+      "age": "44",
+      "country": "USA",
+      "subjects": "",
+      "interests": ""
+    },
+    {
+      "id": "c542",
+      "firstname": "this is test instant",
+      "email": "trushant@geexu.in",
+      "gender": "male",
+      "age": "55",
+      "country": "USA",
+      "subjects": "",
+      "interests": ""
+    },
+    {
+      "id": "9ce3",
+      "firstname": "baldev pardeshi",
+      "email": "trushant@geexu.in",
+      "gender": "male",
+      "age": "23",
+      "country": "Canada",
+      "subjects": "",
+      "interests": ""
+    },
+    {
+      "id": "ae5a",
+      "firstname": "test network",
+      "email": "baldev@setoo.co",
+      "gender": "male",
+      "age": "20",
+      "country": "UK",
+      "subjects": "",
+      "interests": ""
+    },
+    {
+      "id": "0cdc",
+      "firstname": "new updated",
+      "email": "asdf@gmail.com",
+      "gender": "male",
+      "age": "20",
+      "country": "USA",
+      "subjects": "",
+      "interests": ""
+    },
+    {
+      "id": "bbe6",
+      "firstname": "adesh",
+      "email": "aaa@yopmail.com",
+      "gender": "male",
+      "age": "22",
+      "country": "Canada",
+      "subjects": "",
+      "interests": ""
+    }
+  ]
+}

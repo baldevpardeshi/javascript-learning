@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+</head>
+<body>
+    <h1>API Integration</h1>
+
+    <script>
+        const getData = (query) => {
+            fetch('http://localhost:8000/').then((response) =>{
+                return response.json();
+            }).then((finalResponse) =>{
+                console.log(finalResponse);
+            }).catch((error) => {
+                console.log(error, "error");
+            })
+        }
+        getData('students');
+
+        const postData = (query, data) => {
+            fetch(`http://localhost:8000/${query}`, {
+                method:'POST',
+                body: JSON.stringify(data)
+            }).then((response) =>{
+                return response.json();
+            }).then((finalResponse) =>{
+                console.log(finalResponse);
+            }).catch((error) => {
+                console.log(error, "error");
+            })
+        }
+
+        const addStudent = () => {
+            const name= document.getElementById("name").value;
+            const age= document.getElementById("age").value;
+            const data = {
+                name,
+                age
+            }
+            postData('studentssgss', data);
+        }
+
+    </script>
+    <div>
+        <input type="text" id="name" placeholder="Name"/>
+        <input type="number" id="age" placeholder="Age"/>
+        <button type="button" onclick="addStudent()">Submit</button>
+    </div>
+    </div>
+</body>
+
+</html>
